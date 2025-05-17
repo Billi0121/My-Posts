@@ -4,10 +4,12 @@ from .forms import *
 from django.views.generic import CreateView
 
 # Create your views here.
-class index(CreateView):
-    form_class = PostsForm
-    template_name = 'posts/index.html'
-    success_url = 'success'
+def index(request):
+    model = post
+    form = PostsForm(request.POST)
+    if form.is_valid():
+        form.save()
+    return render(request, 'posts/index.html', {'form': form})
 
 def success(request):
     return render(request, 'posts/success.html')

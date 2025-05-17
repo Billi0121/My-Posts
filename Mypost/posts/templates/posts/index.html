@@ -1,5 +1,89 @@
-<form method=POST action=''>
-  {{ form.as_p }}
-  {% csrf_token %}
-  <button>Enter</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LIVEJOURNAL - Zuckonit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #cce0f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .window {
+      background: white;
+      width: 700px;
+      margin: 50px auto;
+      border: 2px solid #666;
+      box-shadow: 0 0 10px #0005;
+    }
+
+    .header {
+      background: #336699;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .nav {
+      background: #204d74;
+      color: white;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 15px;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .content h2 {
+      margin-top: 0;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    .submit {
+      margin-top: 10px;
+      background: #ddd;
+      padding: 6px 12px;
+      border: 1px solid #999;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="window">
+    <div class="header">LIVEJOURNAL™</div>
+    <div class="nav">
+      <a href="#">Welcome</a>
+      <a href="#">Search</a>
+      <a href="#">Help</a>
+      <a href="#">About</a>
+    </div>
+    <div class="content">
+      <h2>Post to Zuckonit</h2>
+      {% comment %} <textarea> {% endcomment %}
+      <form method=POST action="{% url 'index' %}">
+        {{ form.as_p }}
+        {% csrf_token %}
+        {% comment %} </textarea> {% endcomment %}
+        <br>
+        <button class="submit">Post</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

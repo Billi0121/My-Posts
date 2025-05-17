@@ -22,7 +22,7 @@ from posts import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index.as_view(), name='index'),
+    path('', views.index, name='index'),
     path('success/', views.success, name='success'),
     path('edit/<int:post_id>/', views.edit_post, name='edit_post'),
 ]
