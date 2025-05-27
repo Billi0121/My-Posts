@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('success/', views.success, name='success'),
+    path('posts/', views.posts, name='posts'),
     path('edit/<int:post_id>/', views.edit_post, name='edit_post'),
 ]

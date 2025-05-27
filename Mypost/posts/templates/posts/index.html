@@ -76,7 +76,7 @@
     <div class="content">
       <h2>Post to Zuckonit</h2>
       {% comment %} <textarea> {% endcomment %}
-      <form method=POST action="{% url 'index' %}">
+      <form method=POST action="">
         {{ form.as_p }}
         {% csrf_token %}
         {% comment %} </textarea> {% endcomment %}
