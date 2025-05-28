@@ -30,3 +30,11 @@ def edit_post(request, post_id):
         form.save()
         return redirect('success')
     return render(request, 'posts/index.html', {'form': form}) 
+
+
+
+def get_post(request, pk):
+    if request.method == 'GET':
+        posts = post.objects.get(pk=pk)
+        serializer = PostSerializer(posts)
+        return JsonResponse(serializer.data)
