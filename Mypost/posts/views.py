@@ -3,7 +3,7 @@ from .models import *
 from .forms import *
 from django.views.generic import CreateView
 from django.http import JsonResponse
-from serializers import PostSerializer
+from .serializers import PostSerializer
 
 # Create your views here.
 def index(request):
@@ -30,9 +30,3 @@ def edit_post(request, post_id):
         form.save()
         return redirect('success')
     return render(request, 'posts/index.html', {'form': form}) 
-
-def get_post(request, post_id):
-    if request.method == 'GET':
-        post = post.objects.get(pk=post_id)
-        serializer = PostSerializer(post)
-        return JsonResponse(serializer.data)
