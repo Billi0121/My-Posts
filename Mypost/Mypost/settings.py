@@ -23,9 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xfm(-0=sv8k(c^b)r7889w8_m2t-29di^92yl^gqjak&&nyi%n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'www.bpost.pythonanywhere.com',
+    'bpost.pythonanywhere.com',
+] 
 
 
 # Application definition
